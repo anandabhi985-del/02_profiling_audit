@@ -69,5 +69,5 @@ print("Raw mean:", raw_income.mean())
 clean_income = df[df['income'] < 1000000]['income'].dropna()
 print("Clean mean:", clean_income.mean())
 ```
-
+When I ran this, the raw mean came out to ₹124,280.97 — clearly wrong, since it's pulled up by the placeholder value. After removing nulls and the placeholder, the clean mean came out to ₹57,251.21, which is less than half the raw number. That's the one I'd actually report.
 This traces average income from the raw CSV, through ingestion, through the issues I found during profiling (missing values + one huge placeholder value), to the corrected number that should actually be used in any report. The clean mean is the one I'd trust.
